@@ -96,6 +96,8 @@ tflint
 
 The original Terraform configuration contained issues detected by the stricter ruleset. One expected issue was that the `region` variable did not declare a type.
 
+<img width="1202" height="342" alt="Screenshot 2026-07-08 181657" src="https://github.com/user-attachments/assets/5ec76039-f214-4216-83cb-f890b957a877" />
+
 The variable was corrected by adding `type = string`.
 
 ```hcl
@@ -107,6 +109,8 @@ variable "region" {
 
 Other reported issues were corrected based on the TFLint output. These included adding missing variable or output descriptions.
 
+<img width="1226" height="1012" alt="Screenshot 2026-07-10 123503" src="https://github.com/user-attachments/assets/f7cd64b0-8734-4089-a1d7-09480b7cd554" />
+
 After correction, the following commands were used:
 
 ```bash
@@ -117,11 +121,9 @@ tflint
 
 The process was repeated until TFLint reported no remaining issues.
 
-
 ## 8. Terratest Configuration
 
 The Terratest file was updated with the correct Azure subscription ID and student label prefix.
-
 
 ## 9. Running Terratest
 
@@ -134,6 +136,7 @@ go test -v azure_webserver_test.go
 Terratest initialized Terraform, deployed the Azure resources, checked the required conditions, and destroyed the resources after the test.
 
 > **Screenshot:** successful Terratest result.
+<img width="1280" height="197" alt="Screenshot 2026-07-10 145228" src="https://github.com/user-attachments/assets/b6cd91da-24b9-423d-aa20-94c3055d4fa5" />
 
 ## 10. Conclusion
 
